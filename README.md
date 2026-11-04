@@ -44,15 +44,19 @@ mkdir scripts results data -p data/ref
 Code to count the number of transcripts:
 
 ```bash
-# Your command:
+#Inspect file
+zcat data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz | head -40
+#Each transcript starts with a header than includes "PREDICTED"
+zgrep -c "PREDICTED" data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz 
 ```
 
 The output of the command was:
 
 ```
+28624
 ```
 
-*Answer*: The number of transcripts in the file:
+*Answer*: The number of transcripts in the file: 28624
 
 ------------------------------------------------------------------------
 
@@ -63,7 +67,7 @@ The output of the command was:
 <!-- Put the code to run TrimGalore in `protocol.md`, not here. -->
 
 *Answer*: Whether all batch jobs succeeded, and how you checked that
-(and any problems you encountered, and how you solved them):
+(and any problems you encountered, and how you solved them): All jobs were completed, I checked the output files. I ran into an issue with batch vs batch but once I fixed that it ran as intended. 
 
 ------------------------------------------------------------------------
 

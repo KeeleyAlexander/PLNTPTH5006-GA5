@@ -28,16 +28,18 @@
 ## Set up: Download the reference transcriptome FASTA file from NCBI
 
 ```bash
-# Downloaded on <???>
-<???>
+# Downloaded on https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/801/865/GCF_016801865.2_TS_CPP_V2/
+
+URL=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/801/865/GCF_016801865.2_TS_CPP_V2/GCF_016801865.2_TS_CPP_V2_rna.fna.gz 
+wget -P data/ref "$URL" 
 ```
 
 ## Set up: Set file paths
 
 ```bash
 # Inputs:
-fastq_dir=<???>
-ref_transcripts=<???>
+fastq_dir=data/fastq
+ref_transcripts=data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz
 
 # Base output dir:
 outdir=results
@@ -45,7 +47,12 @@ outdir=results
 
 ## Step 1: Read trimming with TrimGalore
 
-<???>
+```bash
+for R1 in ../garrigos/fastq/*_R1.fastq.gz; do
+    R2="${R1/_R1/_R2}"
+    sbatch scripts/trimgalore.sh "$R1" "$R2" results/trimgalore
+done
+```
 
 ## Step 2: Creating a transcriptome index with Salmon
 
