@@ -78,17 +78,18 @@ The output of the command was:
 Code to check the size of the index dir:
 
 ```bash
-# Your command:
+du -sh results/salmon_index
 ```
 
 The output of the command was:
 
 ```
+1.1 G results/salmon_index
 ```
 
-*Answer*: How long it took to create the index, and how you found out:
+*Answer*: How long it took to create the index, and how you found out: 28s. The start and end time are in the slurm output file 
 
-*Answer*: The size of the index dir:
+*Answer*: The size of the index dir: 1.1G
 
 ### 8: Run Salmon for all samples
 
@@ -96,42 +97,68 @@ The output of the command was:
 
 ### 9: The transcripts with the most reads
 
-*Answer*: What the `NumReads` column contains:
+*Answer*: What the `NumReads` column contains: This contains the number of reads mapped to each transcript that was quantified 
 
 ```bash
-# Your command:
+sort -k5,5nr results/salmon_quant/S63/quant.sf | head -n 3
 ```
 
 The output of the command was:
 
 ```
+XM_039591534.2  6566    6315.134        13757.775373    24111.624
+XM_039573735.1  6445    6194.134        5060.884906     8699.669
+XM_052711352.1  1668    1417.134        13799.986745    5427.319GRE
 ```
 
 ### 10: The gene of the top transcript
 
 ```bash
-# Your command:
+zgrep "XM_039591534.2" data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz 
 ```
 
 The output of the command was:
 
 ```
+>XM_039591534.2 PREDICTED: Culex pipiens pallens vitellogenin-A1-like (LOC120426760), mRNA
 ```
 
-*Answer*: The gene that the top transcript belongs to:
+*Answer*: The gene that the top transcript belongs to: vitellogenin-A1-like (LOC120426760)
 
 ### 11: Mapping rates
 
 ```bash
-# Your command:
+grep "mapping rate" results/salmon_quant/*/logs/salmon_quant.log
 ```
 
 The output of the command was:
 
 ```
+results/salmon_quant/S63/logs/salmon_quant.log:mapping rate: 80.6264%
+results/salmon_quant/S64/logs/salmon_quant.log:mapping rate: 81.2534%
+results/salmon_quant/S65/logs/salmon_quant.log:mapping rate: 78.7484%
+results/salmon_quant/S66/logs/salmon_quant.log:mapping rate: 81.2214%
+results/salmon_quant/S67/logs/salmon_quant.log:mapping rate: 82.6772%
+results/salmon_quant/S68/logs/salmon_quant.log:mapping rate: 78.3450%
+results/salmon_quant/S69/logs/salmon_quant.log:mapping rate: 81.0040%
+results/salmon_quant/S70/logs/salmon_quant.log:mapping rate: 81.9808%
+results/salmon_quant/S71/logs/salmon_quant.log:mapping rate: 78.5364%
+results/salmon_quant/S74/logs/salmon_quant.log:mapping rate: 76.6938%
+results/salmon_quant/S75/logs/salmon_quant.log:mapping rate: 78.4252%
+results/salmon_quant/S76/logs/salmon_quant.log:mapping rate: 81.5200%
+results/salmon_quant/S77/logs/salmon_quant.log:mapping rate: 77.5984%
+results/salmon_quant/S78/logs/salmon_quant.log:mapping rate: 81.2922%
+results/salmon_quant/S79/logs/salmon_quant.log:mapping rate: 79.1664%
+results/salmon_quant/S80/logs/salmon_quant.log:mapping rate: 80.9568%
+results/salmon_quant/S81/logs/salmon_quant.log:mapping rate: 81.1610%
+results/salmon_quant/S82/logs/salmon_quant.log:mapping rate: 78.0668%
+results/salmon_quant/S83/logs/salmon_quant.log:mapping rate: 75.8248%
+results/salmon_quant/S84/logs/salmon_quant.log:mapping rate: 79.4264%
+results/salmon_quant/S85/logs/salmon_quant.log:mapping rate: 75.6046%
+results/salmon_quant/S86/logs/salmon_quant.log:mapping rate: 81.8648%
 ```
 
-*Answer*: The sample with the lowest mapping rate:
+*Answer*: The sample with the lowest mapping rate: S85
 
 ------------------------------------------------------------------------
 

@@ -55,12 +55,17 @@ done
 ```
 
 ## Step 2: Creating a transcriptome index with Salmon
-
-<???>
-
+```bash
+sbatch scripts/salmon_index.sh data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz results/salmon_index
+```
 ## Step 3: Pseudo-alignment and quantification with Salmon
 
-<???>
+```bash
+for R1 in ../garrigos/fastq/*_R1.fastq.gz; do
+    R2="${R1/_R1/_R2}"
+    sbatch scripts/salmon_quant.sh "$R1" "$R2" results/salmon_index results/salmon_quant
+done
+```
 
 ## Step 4: Summarizing the results of all steps with MultiQC
 
