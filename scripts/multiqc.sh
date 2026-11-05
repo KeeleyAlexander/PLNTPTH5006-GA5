@@ -1,4 +1,9 @@
 #!/bin/bash
+#SBATCH --account=PAS3493
+#SBATCH --cpus-per-task=8
+#SBATCH --time=60
+#SBATCH --mail-type=FAIL
+#SBATCH --output=multiqc-%j.out
 set -euo pipefail
 
 # Run MultiQC to summarize the output of other programs (e.g. FastQC) in an input dir
