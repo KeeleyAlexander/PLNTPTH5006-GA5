@@ -192,6 +192,8 @@ and why you think these lengths are the most common: The most common adapter len
 ### 16: Ask Claude about the MultiQC report
 
 *Answer*: What you asked, and what you learned from Claude's answer (in your own words):
+what I asked: can you please explain the adapter length distribution plot? why are the trimmed adapters so short?
+Claude explanation (in my own words): This is not actually the length of the adapters, adapter are usually arounf 75bp. This is the amount of overlap of adapters and reads, and since the "stringency" setting was -0 1, a single random base matching the adapter by chance counts as a hit. 
 
 ------------------------------------------------------------------------
 
@@ -204,7 +206,7 @@ and whether you agree or disagree with each one, and why:
 
 ### 18: Address a suggestion
 
-*Answer*: Which suggestion(s) you addressed, and what you changed:
+*Answer*: Which suggestion(s) you addressed, and what you changed: I used hard codes in my protocol and need to change them to the variables at the top of the protocol. I also had a bug in my multiqc which I could tell as I got an email that there was an error and it produces a lot of files I didnt nead. I also have a bunch of out files that are not cleaned up and in their folders, so I should make a command for that. I used claude for this and asked it to clean up and move all my log files to their folders 
 
 ------------------------------------------------------------------------
 
