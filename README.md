@@ -171,17 +171,23 @@ results/salmon_quant/S86/logs/salmon_quant.log:mapping rate: 81.8648%
 ### 13: Run MultiQC
 
 *Answer*: For each program, the number of reports that MultiQC found,
-and why it found this number:
+and why it found this number: 
+            salmon | Found 22 meta reports
+            salmon | Found 22 fragment length distributions
+            salmon | Found 22 library format counts reports
+           trim_galore | Found 44 reports
+            fastqc | Found 44 reports
+There are 22 samples, but trimgalore and fastqc use paired end so both R1 and R2 so 44 reports 
 
 ### 14: The General Statistics table
 
 *Answer*: The sample with the lowest Salmon mapping rate,
-and whether this matches your answer to question 11:
+and whether this matches your answer to question 11: S85, yes this matches my answer
 
 ### 15: Adapter lengths
 
 *Answer*: The most common adapter lengths, whether this surprised you,
-and why you think these lengths are the most common:
+and why you think these lengths are the most common: The most common adapter length was 1-3bp. This seems very short for an adapter length. I'm really not sure why this length is normal or common. 
 
 ### 16: Ask Claude about the MultiQC report
 

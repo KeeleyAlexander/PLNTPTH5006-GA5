@@ -69,4 +69,8 @@ done
 
 ## Step 4: Summarizing the results of all steps with MultiQC
 
-<???>
+```bash
+for R1 in ../garrigos/fastq/*_R1.fastq.gz; do
+    R2="${R1/_R1/_R2}"
+    sbatch scripts/multiqc.sh results results/multiqc
+done
